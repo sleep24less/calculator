@@ -7,11 +7,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <script src="https://kit.fontawesome.com/53c06c11c4.js" crossorigin="anonymous" defer></script>
     <title>Calculator</title>
 </head>
 
 <body>
-
+    <nav class="navbar">
+        <h3>A SIMPLE CALCULATOR</h3>
+    </nav>
+    <section class="main">
+        <div class="container">
+            <div class="screen"></div>
+            <section class="all_buttons">
+                <div class="button_row">
+                    <button id="plus_minus" class="op_button">±</button>
+                    <button id="reset" class="op_button">C</button>
+                    <button id="delete" class="op_button">DEL</button>
+                    <button id="divide" class="op_button">÷</button>
+                </div>
+                <div class="button_row">
+                    <button id="7" class="num_button">7</button>
+                    <button id="8" class="num_button">8</button>
+                    <button id="9" class="num_button">9</button>
+                    <button id="multiply" class="op_button">×</button>
+                </div>
+                <div class="button_row">
+                    <button id="4" class="num_button">4</button>
+                    <button id="5" class="num_button">5</button>
+                    <button id="6" class="num_button">6</button>
+                    <button id="subtract" class="op_button">-</button>
+                </div>
+                <div class="button_row">
+                    <button id="1" class="num_button">1</button>
+                    <button id="2" class="num_button">2</button>
+                    <button id="3" class="num_button">3</button>
+                    <button id="add" class="op_button">+</button>
+                </div>
+                <div class="button_row">
+                    <button id="empty" class="num_button"></button>
+                    <button id="0" class="num_button">0</button>
+                    <button id="empty" class="num_button"></button>
+                    <button id="equal" class="op_button">=</button>
+                </div>
+            </section>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>Copyright @
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            Arno Manukian
+        </p>
+        <a href="https://github.com/rektjesus" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </footer>
 </body>
 
 </html>

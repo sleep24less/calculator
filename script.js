@@ -1,22 +1,34 @@
 let result = 0;
 
-
+// Math functions
 function add(a, b) {
     result = a + b;
-    console.log(result);
 }
 
 function subtract(a, b) {
     result = a - b;
-    console.log(result);
 }
 
 function multiply(a, b) {
     result = a * b;
-    console.log(result);
 }
 
 function divide(a, b) {
     result = a / b;
-    console.log(result);
+}
+
+// Call function to choose the math function
+function operate(operator, a, b) {
+    if (operator === '+') {
+        add(a, b);
+    }
+    else if (operator === '-') {
+        subtract(a, b);
+    }
+    else if (operator === '*') {
+        multiply(a, b);
+    }
+    else (operator === '/') {
+        divide(a, b);
+    }
 }
