@@ -104,6 +104,11 @@ button:active {
 #equal {
     background-color: #3B717A;
     color: rgb(231, 231, 231);
+    width: 200px;
+}
+
+#reset {
+    width: 200px;
 }
 
 /* FOOTER */
