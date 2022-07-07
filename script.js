@@ -56,9 +56,34 @@ class Calculator {
         this.previousOperand = '';
     }
 
+    getDisplayNumber(number) {
+        const stringNumber = number.toString();
+        const integerNumbers = parseFloat(stringNumber.split('.')[0]);
+        const decimalNumbers = stringNumber.split('.')[1];
+        let integerDisplay;
+        if (isNaN(integerNumbers)) {
+            integerDisplay = '';
+        }
+        else {
+            integerDisplay = integerNumbers.toLocaleString('en', { maximumFractionDigits: 0 })
+        }
+        if (decimalNumbers != null) {
+            return `${integerDisplay}.${decimalNumbers}`
+        }
+        else {
+            return integerDisplay;
+        }
+    }
+
     updateDisplay() {
-        this.currentOperandTextElement.textContent = this.currentOperand;
-        this.previousOperandTextElement.textContent = this.previousOperand;
+        this.currentOperandTextElement.textContent = this.getDisplayNumber(this.currentOperand);
+        if (this.operation != null) {
+            this.previousOperandTextElement.textContent =
+                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+        }
+        else {
+            this.previousOperandTextElement.textContent = '';
+        }
     }
 }
 // Buttons

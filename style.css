@@ -53,13 +53,16 @@ body {
     width: 400px;
     height: 200px;
     margin-bottom: 25px;
-    font-size: 56px;
+    font-size: 48px;
     box-shadow: inset 0 0 10px #000000;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #previous_operand,
 #current_operand {
     margin-right: 10px;
+    text-align: end
 }
 
 .all_buttons {
