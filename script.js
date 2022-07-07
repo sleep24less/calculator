@@ -25,6 +25,7 @@ class Calculator {
 
     // Sets an operation to perform in the compute function
     chooseOperation(operation) {
+        if (this.currentOperand === 'ERR0R') this.clear()
         if (this.currentOperand === '') return;
         if (this.previousOperand !== '') {
             this.compute()
@@ -51,7 +52,12 @@ class Calculator {
                 result = prev * current;
                 break;
             case '÷':
-                result = prev / current;
+                if (current === 0) {
+                    result = 'ERR0R';
+                }
+                else {
+                    result = prev / current;
+                }
                 break;
             default:
                 return;
@@ -84,6 +90,9 @@ class Calculator {
     // Updates the current and/or previous display
     updateDisplay() {
         this.currentOperandTextElement.textContent = this.getDisplayNumber(this.currentOperand);
+        if (this.currentOperand === 'ERR0R') {
+            this.currentOperandTextElement.textContent = this.currentOperand;
+        }
         if (this.operation != null) {
             this.previousOperandTextElement.textContent =
                 `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
