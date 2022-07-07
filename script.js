@@ -5,21 +5,25 @@ class Calculator {
         this.clear();
     }
 
+    // Clears display
     clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operation = undefined;
     }
 
+    // Deletes last number in current display
     delete() {
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
 
+    // Adds number to current display
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
+    // Sets an operation to perform in the compute function
     chooseOperation(operation) {
         if (this.currentOperand === '') return;
         if (this.previousOperand !== '') {
@@ -30,6 +34,7 @@ class Calculator {
         this.currentOperand = '';
     }
 
+    // Performs the math equation depending on the operation set
     compute() {
         let result;
         let prev = parseFloat(this.previousOperand);
@@ -56,6 +61,7 @@ class Calculator {
         this.previousOperand = '';
     }
 
+    // Adds commas every 3rd number and displays decimal numbers correctly
     getDisplayNumber(number) {
         const stringNumber = number.toString();
         const integerNumbers = parseFloat(stringNumber.split('.')[0]);
@@ -75,6 +81,7 @@ class Calculator {
         }
     }
 
+    // Updates the current and/or previous display
     updateDisplay() {
         this.currentOperandTextElement.textContent = this.getDisplayNumber(this.currentOperand);
         if (this.operation != null) {
@@ -99,6 +106,7 @@ const currentOperandTextElement = document.querySelector('#current_operand');
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
+// Button event listeners
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.textContent);
