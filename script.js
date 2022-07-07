@@ -1,34 +1,53 @@
-let result = 0;
-
-// Math functions
-function add(a, b) {
-    result = a + b;
-}
-
-function subtract(a, b) {
-    result = a - b;
-}
-
-function multiply(a, b) {
-    result = a * b;
-}
-
-function divide(a, b) {
-    result = a / b;
-}
-
-// Call function to choose the math function
-function operate(operator, a, b) {
-    if (operator === '+') {
-        add(a, b);
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
     }
-    else if (operator === '-') {
-        subtract(a, b);
+
+    clear() {
+        this.currentOperand = '';
+        this.previousOperand = '';
+        this.operation = undefined;
     }
-    else if (operator === '*') {
-        multiply(a, b);
+
+    delete() {
+
     }
-    else (operator === '/') {
-        divide(a, b);
+
+    appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+    }
+
+    chooseOperation(operation) {
+
+    }
+
+    compute() {
+
+    }
+
+    updateDisplay() {
+        this.currentOperandTextElement.textContent = this.currentOperand;
     }
 }
+// Buttons
+const numberButtons = document.querySelectorAll('.num_button');
+const operationButtons = document.querySelectorAll('.op_button');
+const equalsButton = document.querySelector('#equals');
+const deleteButton = document.querySelector('#delete');
+const resetButton = document.querySelector('#reset');
+
+// Screen
+const previousOperandTextElement = document.querySelector('#previous_operand');
+const currentOperandTextElement = document.querySelector('#current_operand');
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.textContent);
+        calculator.updateDisplay();
+    })
+})
