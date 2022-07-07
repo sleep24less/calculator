@@ -94,7 +94,9 @@ button:active {
     color: rgb(231, 231, 231);
 }
 
-.op_button {
+.op_button,
+#reset,
+#delete {
     background-color: #acd3da;
     color: #4a5c5f;
 }
