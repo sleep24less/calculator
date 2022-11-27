@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+html {
+    height: -webkit-fill-available;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -12,6 +16,7 @@ body {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 16px;
     height: 100vh;
+    height: -webkit-fill-available;
 }
 
 :root {
@@ -155,4 +160,70 @@ button:active {
     transform: rotate(360deg) scale(1.2);
     color: var(--color-accent);
     transition: 0.5s;
+}
+
+/* RESPONSIVE FOR MOBILE */
+
+@media only screen and (max-width: 768px) {
+
+    .navbar {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .main .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        background-color: var(--color-bg);
+        border-radius: 15px;
+        box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.4);
+
+        max-width: 90vw;
+        height: 80vh;
+    }
+
+    .screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        background-color: var(--color-screen);
+        width: 95%;
+        height: 200px;
+        margin-bottom: 25px;
+        font-size: 48px;
+        color: var(--color-accent);
+        box-shadow: inset 0 0 10px #000000;
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow: hidden;
+    }
+
+    .all_buttons {
+        max-width: 95%;
+        max-height: 65%;
+    }
+
+    button {
+        height: 100%;
+        width: 100%;
+        font-size: 26px;
+        font-weight: bold;
+        color: var(--color-font);
+        border: 1px solid #000000;
+        cursor: pointer;
+    }
+
+    .button_row {
+        display: flex;
+        flex-wrap: nowrap;
+        height: 70px;
+        gap: 0;
+    }
 }
